@@ -1,1 +1,8 @@
-
+---
+branches:
+- master
+- Poggit
+projects:
+  0v3rLobby:
+    path: ""
+...
