@@ -23,7 +23,7 @@ public function onEnable(){
 	$this->getLogger()->info(" LOBBY CORE ACTIVE");
 }
 
-public function onJoin (PlayerJoinEvent $event){
+public function onJoin(PlayerJoinEvent $event){
 
 	$player = $event->getPlayer();
 	
