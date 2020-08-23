@@ -22,7 +22,8 @@ class Main extends PluginBase implements Listener{
 	public function onEnable(){
 
 		$this->getLogger()->info(" LOBBY CORE ACTIVE");
-}
+
+	}
 
 	
 	public function onJoin(PlayerJoinEvent $event){
