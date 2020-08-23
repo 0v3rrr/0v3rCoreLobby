@@ -47,7 +47,7 @@ class Main extends PluginBase implements Listener{
 		$player->sendMessage("§6============================");
 		$player->sendMessage("§a         Noctalia");
 		$player->sendMessage("§c            En Dev");
-		$player->sendMessage("§6============================")
+		$player->sendMessage("§6============================");
 		
 		$slot1 = Item::get(360, 0, 1);
 		$slot9 = Item::get(152, 0, 1);
