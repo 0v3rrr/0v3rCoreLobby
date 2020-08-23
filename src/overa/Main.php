@@ -43,7 +43,7 @@ class Main extends PluginBase implements Listener{
 		$name = $player->getName();
                 $playerrep = $name;
 		
-		$event->setJoinMessage("Test Test")
+		$this->getServer()->broadcastMessage("Tsst");
 		
 		
 		$player->setFood(20);
