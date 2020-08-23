@@ -1,7 +1,7 @@
 
 <?php 
 
-namespace overa;
+namespace Main;
 
 use pocketmine\Player;
 use pocketmine\Server;
