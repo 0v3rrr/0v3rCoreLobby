@@ -12,6 +12,9 @@ use pocketmine\command\CommandSender;
 
 use pocketmine\item\Item;
 
+use muqsit\invmenu\InvMenuHandler;
+use muqsit\invmenu\InvMenu;
+
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\Listener;
