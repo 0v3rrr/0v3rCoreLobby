@@ -64,6 +64,8 @@ class Main extends PluginBase implements Listener{
 		$player->getInventory()->clearAll();
 		$player->getInventory()->setItem(0, $slot1);
 		$player->getInventory()->setItem(8, $slot9);
+		
+		$this->getServer()->broadcastMessage(" TEST ")
 	}
 
 	public function onInteract(PlayerInteractEvent $event){
