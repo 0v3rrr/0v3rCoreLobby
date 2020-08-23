@@ -8,6 +8,7 @@ use pocketmine\Server;
 use pocketmine\plugin\PluginBase;
 
 use pocketmine\inventory\Inventory;
+use pocketmine\invnetory\PlayerInventory;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
