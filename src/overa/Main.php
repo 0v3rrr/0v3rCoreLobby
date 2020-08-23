@@ -44,9 +44,9 @@ class Main extends PluginBase implements Listener{
 		$player->setHealth(20);
 		$player->setGamemode(0);
 		
-		$player->sendMessage("§6============================")
-		$player->sendMessage("§a         Noctalia")
-		$player->sendMessage("§c            En Dev")
+		$player->sendMessage("§6============================");
+		$player->sendMessage("§a         Noctalia");
+		$player->sendMessage("§c            En Dev");
 		$player->sendMessage("§6============================")
 		
 		$slot1 = Item::get(360, 0, 1);
