@@ -13,7 +13,7 @@ use pocketmine\command\CommandSender;
 
 use pocketmine\item\Item;
 
-use pocketmine\event\player\PlayerJoinEvent/
+use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\Listener;
 
@@ -21,7 +21,7 @@ class Main extends PluginBase implements Listener{
 
 
 public function onEnable(){
-	$this->getLogger()->info(" LOBBY CORE ACTIVE")
+	$this->getLogger()->info(" LOBBY CORE ACTIVE");
 }
 
 public function onJoin (PlayerJoinEvent $event){
@@ -50,7 +50,7 @@ public function onInteract(PlayerInteractEvent $event){
 	}
 	
 	if($item->getId() == 152 || $itemname == "§6Profile"){
-		$player->sendMessage("§eNo Profile On For the moment")
+		$player->sendMessage("§eNo Profile On For the moment");
 		return true;
 	}
 	
