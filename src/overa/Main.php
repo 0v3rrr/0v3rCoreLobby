@@ -5,6 +5,8 @@ namespace overa;
 use pocketmine\Player;
 use pocketmine\Server;
 
+use pocketmine\command\ConsoleCommandSender;
+
 use pocketmine\plugin\PluginBase;
 
 use pocketmine\inventory\Inventory;
