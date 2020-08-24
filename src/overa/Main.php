@@ -25,6 +25,14 @@ public function onEnable(){
 	$this->getServer()->getPluginManager()->registerEvents($this , $this);
 }
 
+
+	
+public function onDrop(PlayerDropItemEvent $event)
+{
+     $event->setCancelled(true);
+     $event->getPlayer()->sendMessage("Vous ne pouvez pas drop d'item");
+}
+
 public function onJoinPlayer(PlayerJoinEvent $event){
 
    $player = $event->getPlayer();	
