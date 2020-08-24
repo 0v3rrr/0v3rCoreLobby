@@ -26,6 +26,10 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\Listener;
 
+use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\entity\EntityDeathEvent;
+
 class Main extends PluginBase implements Listener{
 
 
@@ -79,6 +83,18 @@ public function onQuitPlayer(PlayerQuitEvent $event){
 
 
 }
+	
+	
+public function onFallDamage(EntityDamageEvent $event){
+
+        $event->setCancelled(true);
+
+    }
+
+    public function onPlayerDamage(EntityDamageEvent $event){
+
+        $event->setCancelled(true);
+    }
 
 
 }
