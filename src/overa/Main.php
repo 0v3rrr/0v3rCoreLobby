@@ -23,11 +23,10 @@ public function onEnable(){
 	$this->getLogger()->info(" LOBBY CORE ACTIVE");
 }
 
-public function onJoinPlayer (PlayerJoinEvent $event){
+public function onJoinPlayer(PlayerJoinEvent $event){
 
    $player = $event->getPlayer();	
    $name = $event->getPlayer()->getName();
-   $event->setJoinMessage(" ");
    $player->getInventory()->clearAll();
 
    $player->getInventory()->setItem(2, Item::get(341)->setCustomName("§r§aLobby"));
