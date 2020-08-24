@@ -119,6 +119,9 @@ public function onFallDamage(EntityDamageEvent $event){
 
 public function onInteract(PlayerInteractEvent $ev){
 
+	
+        $player = $ev->getPlayer();
+        $item = $ev->getItem();
 
 
 }
