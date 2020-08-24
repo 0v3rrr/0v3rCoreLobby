@@ -126,5 +126,77 @@ public function onInteract(PlayerInteractEvent $ev){
 
 }
 	
-}
+	
 
+
+    public function Future($player){
+
+        $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
+        $form = $api->createSimpleForm(function (Player $player, int $data = null) {
+            $result = $data;
+            if ($result === null) {
+                return true;
+            }
+            switch ($result) {
+                case 0:
+                    if ($player->hasPermission("fly.use")){
+                        $this->Fly($player);
+                    }else{
+                        $player->sendMessage("§cDu hast dafür keine Rechte!");
+                    }
+                    break;
+            }
+            switch ($result){
+                case 1:
+                    if ($player->hasPermission("size.use")) {
+                        $this->Size($player);
+                    }else{
+                        $player->sendMessage("§cDu hast dafür keine Rechte!");
+                    }
+                    break;
+            }
+            switch ($result){
+                case 2:
+                    if ($player->hasPermission("inv.use")){
+                        $this->inv($player);
+                    }else{
+                        $player->sendMessage("§cDu hast dafür keine Rechte!");
+                    }
+                    break;
+            }
+            switch ($result){
+                case 3:
+                    if ($player->hasPermission("speed.use")){
+                        $this->Speed($player);
+                    }else{
+                        $player->sendMessage("§cDu hast dafür keine Rechte!");
+                    }
+                    break;
+            }
+            switch ($result){
+                case 4:
+                    if ($player->hasPermission("time.use")){
+                        $this->Time($player);
+                    }else{
+                        $player->sendMessage("§cDu hast dafür keine Rechte!");
+                    }
+                    break;
+            }
+            switch ($result){
+                case 5:
+                    break;
+            }
+        });
+        $form->setTitle("§r§5Features");
+        $form->addButton("§6Fly");
+        $form->addButton("§2Size");
+        $form->addButton("Inventar");
+        $form->addButton("§3Speed");
+        $form->addButton("§5Time");
+        $form->addButton("§cVerlassen");
+        $form->sendToPlayer($player);
+        return true;
+
+    }
+	
+}
