@@ -31,6 +31,8 @@ public function onJoinPlayer(PlayerJoinEvent $event){
    $name = $event->getPlayer()->getName();
    $player->getInventory()->clearAll();
 
+   $event->setJoinMessage("§6[§r+§6] $name");
+
    $player->getInventory()->setItem(0, Item::get(369)->setCustomName("§r§aProfile"));
    $player->getInventory()->setItem(2, Item::get(341)->setCustomName("§r§eLobby"));
    $player->getInventory()->setItem(4, Item::get(345)->setCustomName("§r§6Compass"));
