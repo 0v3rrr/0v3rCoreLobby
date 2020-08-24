@@ -13,6 +13,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\item\Item;
 
 use pocketmine\event\player\PlayerDropItemEvent;
+use pocketmine\event\player\PlayerQuitEvent;
 
 use pocketmine\level\sound\AnvilFallSound;
 use pocketmine\level\sound\ClickSound;
@@ -65,6 +66,15 @@ public function onJoinPlayer(PlayerJoinEvent $event){
    $player->setMaxHealth("20");
    $player->setHealth("20");
    $player->getlevel()->addSound(new AnvilUseSound($player));
+
+}
+	
+public function onQuitPlayer(PlayerQuitEvent $event){
+	$player = $event->getPlayer();
+	$name = $event->getPlayer()->getName();
+	$event->setQuitMessage("§6[§f-§6] $name");
+     
+
 
 }
 
