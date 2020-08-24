@@ -54,7 +54,13 @@ public function onJoinPlayer(PlayerJoinEvent $event){
    $player->getInventory()->clearAll();
    $player->getArmorInventory()->clearAll();
 
-   $event->setJoinMessage("§6[§r+§6] $name");
+   $event->setJoinMessage("§7[§6+§7]§6 $name");
+	
+	$player->sendMessage("§7====================");
+	$player->sendMessage("§a   §lNoctalia");
+	$player->sendMessage("§f Code by 0v3r");
+	$player->sendMessage("§7====================");
+	
 
    $player->getInventory()->setItem(0, Item::get(369)->setCustomName("§r§aProfile"));
    $player->getInventory()->setItem(2, Item::get(341)->setCustomName("§r§eLobby"));
