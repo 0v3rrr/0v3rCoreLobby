@@ -142,7 +142,7 @@ public function onInteract(PlayerInteractEvent $ev){
                     if ($player->hasPermission("fly.use")){
                         $this->Fly($player);
                     }else{
-                        $player->sendMessage("§cDu hast dafür keine Rechte!");
+                        $player->sendMessage("§FLY");
                     }
                     break;
             }
@@ -151,49 +151,29 @@ public function onInteract(PlayerInteractEvent $ev){
                     if ($player->hasPermission("size.use")) {
                         $this->Size($player);
                     }else{
-                        $player->sendMessage("§cDu hast dafür keine Rechte!");
+                        $player->sendMessage("§c SIZE");
                     }
                     break;
             }
             switch ($result){
                 case 2:
-                    if ($player->hasPermission("inv.use")){
-                        $this->inv($player);
+                    if ($player->hasPermission("speed.use")){
+                        $this->Speed($player);
                     }else{
-                        $player->sendMessage("§cDu hast dafür keine Rechte!");
+                        $player->sendMessage("§c SPEED");
                     }
                     break;
             }
             switch ($result){
                 case 3:
-                    if ($player->hasPermission("speed.use")){
-                        $this->Speed($player);
-                    }else{
-                        $player->sendMessage("§cDu hast dafür keine Rechte!");
-                    }
-                    break;
-            }
-            switch ($result){
-                case 4:
-                    if ($player->hasPermission("time.use")){
-                        $this->Time($player);
-                    }else{
-                        $player->sendMessage("§cDu hast dafür keine Rechte!");
-                    }
-                    break;
-            }
-            switch ($result){
-                case 5:
                     break;
             }
         });
-        $form->setTitle("§r§5Features");
-        $form->addButton("§6Fly");
-        $form->addButton("§2Size");
-        $form->addButton("Inventar");
-        $form->addButton("§3Speed");
-        $form->addButton("§5Time");
-        $form->addButton("§cVerlassen");
+        $form->setTitle("§r§5Cosmetics");
+        $form->addButton("§l§6Fly");
+        $form->addButton("§l§2Size");
+        $form->addButton("§l§dSpeed");
+        $form->addButton("§cNoctalia");
         $form->sendToPlayer($player);
         return true;
 
