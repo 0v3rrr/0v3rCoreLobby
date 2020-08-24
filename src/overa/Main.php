@@ -13,6 +13,8 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 
+use jojoe77777\FormAPI;
+
 use pocketmine\item\Item;
 
 use pocketmine\event\player\PlayerDropItemEvent;
@@ -115,5 +117,11 @@ public function onFallDamage(EntityDamageEvent $event){
     }
 
 
+public function onInteract("PlayerInteractEvent" $ev){
+
+
+
+}
+	
 }
 
