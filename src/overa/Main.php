@@ -43,6 +43,18 @@ public function onEnable(){
 	$this->getServer()->getPluginManager()->registerEvents($this , $this);
 }
 
+ public function scoreboard() : void
+    {
+        foreach ($this->getServer()->getOnlinePlayers() as $online)
+        {
+          
+            Scoreboard::removeScoreboard($online, "§cNoctalia");
+            Scoreboard::createScoreboard($online, "§cNoctalia");
+            Scoreboard::setScoreboardEntry($online, 1, "§c Noctalia", "Noctalia");
+            Scoreboard::setScoreboardEntry($online, 2, "§c Lign 2", "Noctalia");
+            Scoreboard::setScoreboardEntry($online, 3, "§c Ligne 3 " . $online->getNameTag(), "Noctalia");
+        }
+    }
 
 	
 public function onDrop(PlayerDropItemEvent $event)
