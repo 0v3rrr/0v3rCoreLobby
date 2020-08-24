@@ -32,7 +32,7 @@ public function onJoinPlayer(PlayerJoinEvent $event){
    $player->getInventory()->clearAll();
    $event->setJoinMessage("§7[§6+§7] §6 $name ");
 
-   $player->getInventory()->setItem(0, Item::get(449)->setCustomName("§r§aProfile");
+   $player->getInventory()->setItem(0, Item::get(449)->setCustomName("§r§aProfile"));
    $player->getInventory()->setItem(2, Item::get(341)->setCustomName("§r§eLobby"));
    $player->getInventory()->setItem(4, Item::get(345)->setCustomName("§r§6Compass"));
    $player->getInventory()->setItem(8, Item::get(130)->setCustomName("§r§5Features"));
