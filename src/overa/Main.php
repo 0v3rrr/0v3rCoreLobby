@@ -51,10 +51,10 @@ public function onJoinPlayer(PlayerJoinEvent $event){
    $player->getInventory()->setItem(5, Item::get(160)->setCustomName(" "));
    $player->getInventory()->setItem(7, Item::get(160)->setCustomName(" "));
 	
-   $player->setXpLevel(2020);
-   $player->setFood(20);
-   $player->setMaxHealth(20);
-   $player->setHealth(20);
+   $player->setXpLevel("2020");
+   $player->setFood("20");
+   $player->setMaxHealth("20");
+   $player->setHealth("20");
    $player->getlevel()->addSound(new AnvilUseSound($player));
 
 }
