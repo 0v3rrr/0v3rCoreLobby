@@ -40,7 +40,7 @@ public function onEnable(){
 public function onDrop(PlayerDropItemEvent $event)
 {
      $event->setCancelled(true);
-     $event->getPlayer()->sendMessage("Vous ne pouvez pas drop d'item");
+     $event->getPlayer()->sendMessage("§cVous ne pouvez pas drop d'item");
 }
 
 public function onJoinPlayer(PlayerJoinEvent $event){
@@ -48,6 +48,7 @@ public function onJoinPlayer(PlayerJoinEvent $event){
    $player = $event->getPlayer();	
    $name = $event->getPlayer()->getName();
    $player->getInventory()->clearAll();
+   $player->getArmorInventory()->clearAll();
 
    $event->setJoinMessage("§6[§r+§6] $name");
 
@@ -65,6 +66,7 @@ public function onJoinPlayer(PlayerJoinEvent $event){
    $player->setFood("20");
    $player->setMaxHealth("20");
    $player->setHealth("20");
+   $player->setGamemode(2);
    $player->getlevel()->addSound(new AnvilUseSound($player));
 
 }
