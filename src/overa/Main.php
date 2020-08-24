@@ -90,6 +90,11 @@ public function onQuitPlayer(PlayerQuitEvent $event){
 
 }
 	
+public function Hunger(PlayerExhaustEvent $event){
+
+        $event->setCancelled(true);
+    }
+	
 	
 public function onFallDamage(EntityDamageEvent $event){
 
