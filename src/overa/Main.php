@@ -12,6 +12,15 @@ use pocketmine\command\CommandSender;
 
 use pocketmine\item\Item;
 
+use pocketmine\event\player\PlayerDropItemEvent;
+
+use pocketmine\level\sound\AnvilFallSound;
+use pocketmine\level\sound\ClickSound;
+use pocketmine\level\sound\AnvilUseSound;
+
+use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
+use pocketmine\network\mcpe\protocol\LevelSoundEventPacketV2;
+
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\Listener;
