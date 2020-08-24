@@ -73,7 +73,7 @@ public function onJoinPlayer(PlayerJoinEvent $event){
 
    $player->getInventory()->setItem(0, Item::get(369)->setCustomName("§r§aProfile"));
    $player->getInventory()->setItem(2, Item::get(341)->setCustomName("§r§eLobby"));
-   $player->getInventory()->setItem(4, Item::get(345)->setCustomName("§r§6Compass"));
+   $player->getInventory()->setItem(4, Item::get(345)->setCustomName("§r§6Compas"));
    $player->getInventory()->setItem(8, Item::get(130)->setCustomName("§r§5Cosmetics"));
    $player->getInventory()->setItem(6, Item::get(399)->setCustomName("§r§aInfo"));
    $player->getInventory()->setItem(1, Item::get(160)->setCustomName(" "));
