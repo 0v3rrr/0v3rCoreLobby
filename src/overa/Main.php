@@ -65,7 +65,8 @@ public function onJoinPlayer(PlayerJoinEvent $event){
 	$player->sendMessage("§f Code by 0v3r");
 	$player->sendMessage("§7====================");
 	
-	$player->addTitle("§a§lBienvenu(e) sur");
+	$player->addTitle("§aBienvenu(e) sur");
+	$player->addSubTitle("§c Noctalia");
 	
 
    $player->getInventory()->setItem(0, Item::get(369)->setCustomName("§r§aProfile"));
