@@ -13,6 +13,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\item\Item;
 
 use pocketmine\event\player\PlayerDropItemEvent;
+use pocketmine\event\player\PlayerExhaustEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 
 use pocketmine\level\sound\AnvilFallSound;
