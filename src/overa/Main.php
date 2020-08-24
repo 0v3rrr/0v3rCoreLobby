@@ -117,7 +117,7 @@ public function onFallDamage(EntityDamageEvent $event){
     }
 
 
-public function onInteract("PlayerInteractEvent" $ev){
+public function onInteract(PlayerInteractEvent $ev){
 
 
 
