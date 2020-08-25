@@ -5,6 +5,9 @@ namespace overa;
 use pocketmine\Player;
 use pocketmine\Server;
 
+
+use pocketmine\plugin\RegisteredListener;
+	
 use pocketmine\scheduler\Task;
 
 
@@ -14,16 +17,24 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 
 use jojoe77777\FormAPI;
+use jojoe77777\FormAPI\CustomForm;
+use jojoe77777\FormAPI\SimpleForm;
+use jojoe77777\FormAPI\Form;
+use jojoe77777\FormAPI\ModalForm;
 
 use pocketmine\item\Item;
 
 use pocketmine\event\player\PlayerDropItemEvent;
 use pocketmine\event\player\PlayerExhaustEvent;
 use pocketmine\event\player\PlayerQuitEvent;
+use pocketmine\event\inventory\InventoryTransactionEvent;
 
 use pocketmine\level\sound\AnvilFallSound;
 use pocketmine\level\sound\ClickSound;
 use pocketmine\level\sound\AnvilUseSound;
+
+use pocketmine\plugin\MethodEventExecutor;
+use pocketmine\plugin\EventExecutor;
 
 use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
 use pocketmine\network\mcpe\protocol\LevelSoundEventPacketV2;
@@ -40,7 +51,7 @@ class Main extends PluginBase implements Listener{
 
 
 public function onEnable(){
-	$this->getLogger()->info(" LOBBY CORE ACTIVE");
+	$this->getLogger()->info("Lobby Plugin has been actived");
 	
 	$this->getServer()->getPluginManager()->registerEvents($this , $this);
 }
@@ -60,10 +71,10 @@ public function onJoinPlayer(PlayerJoinEvent $event){
    $player->getInventory()->clearAll();
    $player->getArmorInventory()->clearAll();
 
-   $event->setJoinMessage("§7[§6+§7]§6 $name");
+   $event->setJoinMessage("§7[§a+§7]§a$name");
 	
 	$player->sendMessage("§7====================");
-	$player->sendMessage("§a   §lNoctalia");
+	$player->sendMessage("§a  §l Noctalia");
 	$player->sendMessage("§f Code by 0v3r");
 	$player->sendMessage("§7====================");
 	
@@ -73,13 +84,9 @@ public function onJoinPlayer(PlayerJoinEvent $event){
 
    $player->getInventory()->setItem(0, Item::get(369)->setCustomName("§r§aProfile"));
    $player->getInventory()->setItem(2, Item::get(341)->setCustomName("§r§eLobby"));
-   $player->getInventory()->setItem(4, Item::get(345)->setCustomName("§r§6Compas"));
+   $player->getInventory()->setItem(4, Item::get(345)->setCustomName("§r§6Compass"));
    $player->getInventory()->setItem(8, Item::get(130)->setCustomName("§r§5Cosmetics"));
    $player->getInventory()->setItem(6, Item::get(399)->setCustomName("§r§aInfo"));
-   $player->getInventory()->setItem(1, Item::get(160)->setCustomName(" "));
-   $player->getInventory()->setItem(3, Item::get(160)->setCustomName(" "));
-   $player->getInventory()->setItem(5, Item::get(160)->setCustomName(" "));
-   $player->getInventory()->setItem(7, Item::get(160)->setCustomName(" "));
 	
    $player->setXpLevel("2020");
    $player->setFood("20");
@@ -93,8 +100,7 @@ public function onJoinPlayer(PlayerJoinEvent $event){
 public function onQuitPlayer(PlayerQuitEvent $event){
 	$player = $event->getPlayer();
 	$name = $event->getPlayer()->getName();
-	$event->setQuitMessage("§6[§f-§6] $name");
-     
+        $event->setQuitMessage("§7[§c-§7]§c$name");
 
 
 }
@@ -123,52 +129,37 @@ public function onInteract(PlayerInteractEvent $ev){
         $player = $ev->getPlayer();
         $item = $ev->getItem();
 	
-	        if($item->getCustomName() == "§r§5Cosmetics"){
-                $this->Future($player);
-
+	if ($player->getInventory()->getItemInHand()->getId() === 130){
+		
+		$this->form($player);
+	
+	}
 
 }
 	
 	
 
 
-    public function Future($player){
+    public function form($player){
 
         $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
-        $form = $api->createSimpleForm(function (Player $player, int $data = null) {
-            $result = $data;
+	$form = $api->createSimpleForm(function (Player $player, int $data = null) {
+            $result = $data; 
             if ($result === null) {
                 return true;
             }
             switch ($result) {
-                case 0:
-                    if ($player->hasPermission("fly.use")){
+		    
+		    case 0:
                         $this->Fly($player);
-                    }else{
-                        $player->sendMessage("§FLY");
-                    }
                     break;
-            }
-            switch ($result){
-                case 1:
-                    if ($player->hasPermission("size.use")) {
+           
+		    case 1:
                         $this->Size($player);
-                    }else{
-                        $player->sendMessage("§c SIZE");
-                    }
-                    break;
-            }
-            switch ($result){
-                case 2:
-                    if ($player->hasPermission("speed.use")){
-                        $this->Speed($player);
-                    }else{
-                        $player->sendMessage("§c SPEED");
-                    }
-                    break;
-            }
-            switch ($result){
-                case 3:
+                    break;	    
+                
+		    case 2:
+                        $player->sendMessage("§cSPEED");
                     break;
             }
         });
@@ -176,10 +167,81 @@ public function onInteract(PlayerInteractEvent $ev){
         $form->addButton("§l§6Fly");
         $form->addButton("§l§2Size");
         $form->addButton("§l§dSpeed");
-        $form->addButton("§cNoctalia");
+	$form->addButton("§4§lEXIT");
         $form->sendToPlayer($player);
-        return true;
+	    return $form;
 
     }
+	
+public function Fly($player){
+
+        $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
+	$form = $api->createSimpleForm(function (Player $player, int $data = null) {
+            $result = $data; 
+            if ($result === null) {
+                return true;
+            }
+            switch ($result) {
+		    
+		    case 0:
+                        $player->setAllowFlight(true);
+                    break;
+		       
+		    case 1:
+                        $player->setAllowFlight(false);
+			$player->setFlying(false);
+                    break;	    
+                
+            }
+        });
+        $form->setTitle("§r§5Cosmetics Fly");
+        $form->addButton("§l§aFly ON");
+        $form->addButton("§l§cFLY OFF");
+	$form->addButton("§4§lEXIT");
+        $form->sendToPlayer($player);
+	    return $form;
+
+    }
+	
+	
+public function Size($player){
+
+        $api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
+	$form = $api->createSimpleForm(function (Player $player, int $data = null) {
+            $result = $data; 
+            if ($result === null) {
+                return true;
+            }
+            switch ($result) {
+		    
+		    case 0:
+                        $player->setScale(2.0);
+			$player->sendMessage("§7Vous etes maintenant de §6§lGrande §r§7 Taille");
+                    break;
+		       
+		    case 1:
+                        $player->setScale(1.0);
+			$player->sendMessage("§7Vous etes maintenant de §6§lMoyenne §r§7Taille");
+                    break;
+			    
+		    case 2:
+			$player->setScale(0.5);
+			$player->sendMessage("§7Vous etes maintenant de §l§6Petite §r§7Taille");
+	            break;
+                
+            }
+        });
+        $form->setTitle("§r§5Cosmetics Size");
+        $form->addButton("§l§c Grande Taille");
+        $form->addButton("§l§6Moyenne Taille");
+	$form->addButton("§a§lPetite Taille");
+	$form->addButton("§4§lEXIT");
+        $form->sendToPlayer($player);
+	    return $form;
+
+
+}
+
+	
 	
 }
